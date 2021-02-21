@@ -8,8 +8,7 @@ class DrawerScreen extends StatefulWidget {
 class _DrawerScreenState extends State<DrawerScreen> {
   @override
   Widget build(BuildContext context) {
-    return AnimatedContainer(
-      duration: null,
+    return Container(
       color: Colors.green,
     );
   }
