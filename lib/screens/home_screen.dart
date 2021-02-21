@@ -18,34 +18,47 @@ class _HomeScreenState extends State<HomeScreen> {
       transform: Matrix4.translationValues(xoffset, yoffset, 0)..scale(scaleFactor),
       duration: Duration(milliseconds: 300),
       color: Colors.white,
-      child: Column(
-        children: [
-          Row(
-            children: [
-              isDrawerOpen
-                  ? IconButton(
-                      icon: Icon(Icons.arrow_back),
-                      onPressed: () {
-                        setState(() {
-                          xoffset = 0;
-                          yoffset = 0;
-                          scaleFactor = 1;
-                          isDrawerOpen = false;
-                        });
-                      })
-                  : IconButton(
-                      icon: Icon(Icons.add),
-                      onPressed: () {
-                        setState(() {
-                          xoffset = 230;
-                          yoffset = 150;
-                          scaleFactor = 0.6;
-                          isDrawerOpen = true;
-                        });
-                      })
-            ],
-          )
-        ],
+      child: SafeArea(
+        child: Column(
+          children: [
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  isDrawerOpen
+                      ? IconButton(
+                          icon: Icon(Icons.arrow_back),
+                          onPressed: () {
+                            setState(() {
+                              xoffset = 0;
+                              yoffset = 0;
+                              scaleFactor = 1;
+                              isDrawerOpen = false;
+                            });
+                          })
+                      : IconButton(
+                          icon: Icon(Icons.menu),
+                          onPressed: () {
+                            setState(() {
+                              xoffset = 230;
+                              yoffset = 150;
+                              scaleFactor = 0.6;
+                              isDrawerOpen = true;
+                            });
+                          }),
+                  Column(
+                    children: [
+                      Text('Location'),
+                      Icon(Icons.location_on),
+                    ],
+                  ),
+                  CircleAvatar(),
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
