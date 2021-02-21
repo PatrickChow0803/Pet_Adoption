@@ -56,6 +56,36 @@ class _HomeScreenState extends State<HomeScreen> {
                   CircleAvatar(),
                 ],
               ),
+            ),
+            Container(
+              child: TextField(
+                decoration: InputDecoration(
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.transparent),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(30),
+                    ),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.green),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(30),
+                    ),
+                  ),
+                  prefixIcon: Icon(
+                    Icons.search,
+                    color: Colors.green,
+                  ),
+                  suffixIcon: Icon(
+                    Icons.swap_horiz,
+                    color: Colors.green,
+                  ),
+                  hintText: "Search Pet",
+                  filled: true,
+                  fillColor: Colors.grey[200],
+                ),
+              ),
+              padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 10.0),
             )
           ],
         ),
