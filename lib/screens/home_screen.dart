@@ -10,6 +10,8 @@ class _HomeScreenState extends State<HomeScreen> {
   double yoffset = 0;
   double scaleFactor = 1;
 
+  bool isDrawerOpen = false;
+
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
@@ -20,15 +22,27 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           Row(
             children: [
-              IconButton(
-                  icon: Icon(Icons.add),
-                  onPressed: () {
-                    setState(() {
-                      xoffset = 230;
-                      yoffset = 150;
-                      scaleFactor = 0.6;
-                    });
-                  })
+              isDrawerOpen
+                  ? IconButton(
+                      icon: Icon(Icons.arrow_back),
+                      onPressed: () {
+                        setState(() {
+                          xoffset = 0;
+                          yoffset = 0;
+                          scaleFactor = 1;
+                          isDrawerOpen = false;
+                        });
+                      })
+                  : IconButton(
+                      icon: Icon(Icons.add),
+                      onPressed: () {
+                        setState(() {
+                          xoffset = 230;
+                          yoffset = 150;
+                          scaleFactor = 0.6;
+                          isDrawerOpen = true;
+                        });
+                      })
             ],
           )
         ],
