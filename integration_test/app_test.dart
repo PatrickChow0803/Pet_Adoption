@@ -10,8 +10,9 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 
 import 'package:pet_adopt/main.dart' as app;
+import 'package:pet_adopt/main.dart';
 
-void main() => run(_testMain);
+void main() => MyApp();
 
 void _testMain() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
