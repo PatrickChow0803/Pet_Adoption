@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pet_adopt/config.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -67,18 +68,18 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.green),
+                    borderSide: BorderSide(color: primaryColor),
                     borderRadius: BorderRadius.all(
                       Radius.circular(30),
                     ),
                   ),
                   prefixIcon: Icon(
                     Icons.search,
-                    color: Colors.green,
+                    color: primaryColor,
                   ),
                   suffixIcon: Icon(
                     Icons.swap_horiz,
-                    color: Colors.green,
+                    color: primaryColor,
                   ),
                   hintText: "Search Pet",
                   filled: true,
@@ -86,6 +87,27 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 10.0),
+            ),
+            Container(
+              height: 120,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: categories.length,
+                itemBuilder: (context, index) {
+                  return Container(
+                    child: Column(
+                      children: [
+                        Container(
+                          height: 50,
+                          width: 50,
+                          child: Image.asset(categories[index]['iconPath']),
+                        ),
+                        Text(categories[index]['name']),
+                      ],
+                    ),
+                  );
+                },
+              ),
             )
           ],
         ),

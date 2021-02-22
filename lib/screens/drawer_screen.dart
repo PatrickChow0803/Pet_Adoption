@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pet_adopt/config.dart';
 
 class DrawerScreen extends StatefulWidget {
   @override
@@ -9,7 +10,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.green,
+      color: primaryColor,
     );
   }
 }
