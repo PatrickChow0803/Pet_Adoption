@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pet_adopt/config.dart';
+import 'package:pet_adopt/screens/details_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -125,40 +126,46 @@ class _HomeScreenState extends State<HomeScreen> {
                   },
                 ),
               ),
-              Container(
-                height: 240,
-                margin: EdgeInsets.symmetric(horizontal: 20.0),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Stack(
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              color: Colors.blueGrey,
-                              borderRadius: BorderRadius.circular(20),
-                              boxShadow: listShadow,
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) => DetailsScreen()));
+                },
+                child: Container(
+                  height: 240,
+                  margin: EdgeInsets.symmetric(horizontal: 20.0),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Stack(
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                color: Colors.blueGrey,
+                                borderRadius: BorderRadius.circular(20),
+                                boxShadow: listShadow,
+                              ),
+                              // makes the image go out of the container
+                              margin: EdgeInsets.only(top: 50),
                             ),
-                            // makes the image go out of the container
-                            margin: EdgeInsets.only(top: 50),
-                          ),
-                          Align(
-                            child: Image.asset('images/pet-cat1.png'),
-                          )
-                        ],
+                            Align(
+                              child: Image.asset('images/pet-cat1.png'),
+                            )
+                          ],
+                        ),
                       ),
-                    ),
-                    Expanded(
-                      child: Container(
-                        margin: EdgeInsets.only(top: 60, bottom: 20),
-                        decoration: BoxDecoration(
-                            color: Colors.white30,
-                            boxShadow: listShadow,
-                            borderRadius: BorderRadius.only(
-                                topRight: Radius.circular(20), bottomRight: Radius.circular(20))),
+                      Expanded(
+                        child: Container(
+                          margin: EdgeInsets.only(top: 60, bottom: 20),
+                          decoration: BoxDecoration(
+                              color: Colors.white30,
+                              boxShadow: listShadow,
+                              borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(20), bottomRight: Radius.circular(20))),
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
               Container(
