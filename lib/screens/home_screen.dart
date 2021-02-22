@@ -98,9 +98,18 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Column(
                       children: [
                         Container(
-                          height: 50,
-                          width: 50,
-                          child: Image.asset(categories[index]['iconPath']),
+                          padding: EdgeInsets.all(10),
+                          margin: EdgeInsets.only(left: 20.0),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            boxShadow: listShadow,
+                            borderRadius: BorderRadius.circular(16),
+                          ),
+                          child: Image.asset(
+                            categories[index]['iconPath'],
+                            height: 50,
+                            width: 50,
+                          ),
                         ),
                         Text(categories[index]['name']),
                       ],
