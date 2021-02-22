@@ -111,11 +111,53 @@ class _HomeScreenState extends State<HomeScreen> {
                             width: 50,
                           ),
                         ),
-                        Text(categories[index]['name']),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Container(
+                          child: Text(categories[index]['name']),
+                          margin: EdgeInsets.only(left: 20.0),
+                        ),
                       ],
                     ),
                   );
                 },
+              ),
+            ),
+            Container(
+              height: 240,
+              margin: EdgeInsets.symmetric(horizontal: 20.0),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Stack(
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                            color: Colors.blueGrey,
+                            borderRadius: BorderRadius.circular(20),
+                            boxShadow: listShadow,
+                          ),
+                          // makes the image go out of the container
+                          margin: EdgeInsets.only(top: 50),
+                        ),
+                        Align(
+                          child: Image.asset('images/pet-cat1.png'),
+                        )
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    child: Container(
+                      margin: EdgeInsets.only(top: 60, bottom: 20),
+                      decoration: BoxDecoration(
+                          color: Colors.white30,
+                          boxShadow: listShadow,
+                          borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(20), bottomRight: Radius.circular(20))),
+                    ),
+                  )
+                ],
               ),
             )
           ],
