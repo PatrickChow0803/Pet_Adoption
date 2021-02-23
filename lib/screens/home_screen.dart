@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pet_adopt/config.dart';
+import 'package:pet_adopt/screens/details_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -16,9 +17,12 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(isDrawerOpen ? 40 : 0),
+        color: Colors.white,
+      ),
       transform: Matrix4.translationValues(xoffset, yoffset, 0)..scale(scaleFactor),
       duration: Duration(milliseconds: 300),
-      color: Colors.white,
       child: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -125,40 +129,46 @@ class _HomeScreenState extends State<HomeScreen> {
                   },
                 ),
               ),
-              Container(
-                height: 240,
-                margin: EdgeInsets.symmetric(horizontal: 20.0),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Stack(
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              color: Colors.blueGrey,
-                              borderRadius: BorderRadius.circular(20),
-                              boxShadow: listShadow,
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) => DetailsScreen()));
+                },
+                child: Container(
+                  height: 240,
+                  margin: EdgeInsets.symmetric(horizontal: 20.0),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Stack(
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                color: Colors.blueGrey,
+                                borderRadius: BorderRadius.circular(20),
+                                boxShadow: listShadow,
+                              ),
+                              // makes the image go out of the container
+                              margin: EdgeInsets.only(top: 50),
                             ),
-                            // makes the image go out of the container
-                            margin: EdgeInsets.only(top: 50),
-                          ),
-                          Align(
-                            child: Image.asset('images/pet-cat1.png'),
-                          )
-                        ],
+                            Align(
+                              child: Hero(tag: 1, child: Image.asset('images/pet-cat1.png')),
+                            )
+                          ],
+                        ),
                       ),
-                    ),
-                    Expanded(
-                      child: Container(
-                        margin: EdgeInsets.only(top: 60, bottom: 20),
-                        decoration: BoxDecoration(
-                            color: Colors.white30,
-                            boxShadow: listShadow,
-                            borderRadius: BorderRadius.only(
-                                topRight: Radius.circular(20), bottomRight: Radius.circular(20))),
+                      Expanded(
+                        child: Container(
+                          margin: EdgeInsets.only(top: 60, bottom: 20),
+                          decoration: BoxDecoration(
+                              color: Colors.white30,
+                              boxShadow: listShadow,
+                              borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(20), bottomRight: Radius.circular(20))),
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
               Container(
