@@ -17,9 +17,12 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(isDrawerOpen ? 40 : 0),
+        color: Colors.white,
+      ),
       transform: Matrix4.translationValues(xoffset, yoffset, 0)..scale(scaleFactor),
       duration: Duration(milliseconds: 300),
-      color: Colors.white,
       child: SafeArea(
         child: SingleChildScrollView(
           child: Column(
