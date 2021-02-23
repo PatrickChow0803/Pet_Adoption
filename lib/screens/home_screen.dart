@@ -149,7 +149,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               margin: EdgeInsets.only(top: 50),
                             ),
                             Align(
-                              child: Image.asset('images/pet-cat1.png'),
+                              child: Hero(tag: 1, child: Image.asset('images/pet-cat1.png')),
                             )
                           ],
                         ),
